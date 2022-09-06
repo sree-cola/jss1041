@@ -11,7 +11,7 @@ public class Contest1 {
 		String match = "";
 		for(char a: str.toCharArray()) {
 			if(a == esc) {
-				result.add(current);
+				result.add(match);
 				match = "";
 				continue;
 			}
