@@ -9,8 +9,8 @@ public class Contest2 {
 
     // Your logic goes here
     String spamwords[] = {
-      "idiot",
-      "stupid"
+      "Wrong",
+      "Worry"
     };
     File Folder = new File(folder);
     File[] listOfFiles = Folder.listFiles();
@@ -18,11 +18,11 @@ public class Contest2 {
       try {
         String fileNameWithoutExtension = file.getName().substring(0, file.getName().lastIndexOf('.'));
         File newfile = new File(Folder, fileNameWithoutExtension + "_processed" + ".txt");
-        BufferedWriter writer = new BufferedWriter(new FileWriter(newfile));
+        BufferedWriter write1 = new BufferedWriter(new FileWriter(newfile));
 
-        Scanner myReader = new Scanner(file);
-        while (myReader.hasNextLine()) {
-          String data = myReader.nextLine();
+        Scanner scan = new Scanner(file);
+        while (scan.hasNextLine()) {
+          String data = scan.nextLine();
           String[] line = data.split(" ");
           for (String word: line) {
 
@@ -30,10 +30,10 @@ public class Contest2 {
               if (Arrays.asList(spamwords).contains(word)) {
                 String str = "****";
 
-                writer.write(str);
+                write1.write(str);
 
               } else {
-                writer.write(word);
+                write1.write(word);
 
               }
 
@@ -42,12 +42,12 @@ public class Contest2 {
 
             }
 
-            writer.write(" ");
+            write1.write(" ");
           }
-          writer.write("\n");
+          write1.write("\n");
         }
-        myReader.close();
-        writer.close();
+        scan.close();
+        write1.close();
       } catch (FileNotFoundException e) {
         System.out.println(e);
         e.printStackTrace();
