@@ -4,25 +4,25 @@ import java.util.List;
 public class Contest1 {
 
 	public static List<String> splitString(String str, char esc) {
-		List<String> res = new ArrayList<String>();
+		List<String> result = new ArrayList<String>();
 
 		// Your Logic goes here
 
-		String current = "";
+		String match = "";
 		for(char a: str.toCharArray()) {
 			if(a == esc) {
-				res.add(current);
-				current = "";
+				result.add(current);
+				match = "";
 				continue;
 			}
-			current += a;
+			match += a;
 		}
 
-		if(!(current.equals(""))) {
-			res.add(current);
+		if(!(match.equals(""))) {
+			result.add(match);
 		}
 
-		return res;
+		return result;
 	}
 
 	public static void main(String[] args) {
